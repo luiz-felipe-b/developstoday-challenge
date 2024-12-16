@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "4000:4000"
+    environment:
+      - AVAILABLE_COUNTRIES_API=https://date.nager.at/api/v3/AvailableCountries
+      - BORDER_COUNTRIES_API=https://date.nager.at/api/v3/CountryInfo/
+      - FLAG_IMAGES_API=https://countriesnow.space/api/v0.1/countries/flag/images
+      - POPULATION_COUNTRY_API=https://countriesnow.space/api/v0.1/countries/population
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
