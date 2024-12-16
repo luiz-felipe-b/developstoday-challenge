@@ -20,10 +20,32 @@ Before running the application, make sure you have the following installed:
 
 ## Setting Up the Application
 
-### Running with Docker Compose
+### Running the app
 
 1. Clone the repository:
 
-   ```bash
-   git clone <repository-url>
-   cd <project-folder>
+   ```
+   git clone https://github.com/luiz-felipe-b/developstoday-challenge.git
+
+2. Navigate to both applications folders and run
+
+   ```
+   npm install
+
+3. Run the docker-compose command:
+
+   ```
+   docker-compose up --build
+
+4. Or start both applications with:
+   1. Frontend:
+      ```
+      npm run dev
+   2. Backend
+      ```
+      node index.js
+
+OBS: Remind to check if there are any applications that are running at the ports 3000 and 4000
+
+
+
